@@ -23,7 +23,6 @@ This application is useful for:
 - comparing raw, filtered, and Kalman-smoothed sensor outputs
 - exporting measurement data for further analysis
 - learning how to build a robotics data acquisition and visualization system
-
 ## Preview
 
 

@@ -1,0 +1,36 @@
+import numpy as np
+from scipy.integrate import solve_ivp
+
+def continuous_kf_ode(t, y, A, B, H, Q, R, u, z):
+    n = A.shape[0]
+    x_hat = y[:n]
+    P = y[n:].reshape(n, n)
+    
+    # Kalman gain
+    K = P @ H.T @ np.linalg.inv(R)
+    
+    # State estimate derivative
+    dxdt = A @ x_hat + B @ u(t) + K @ (z(t) - H @ x_hat)
+    
+    # Covariance derivative
+    dPdt = A @ P + P @ A.T - P @ H.T @ np.linalg.inv(R) @ H @ P + Q
+    return np.concatenate([dxdt, dPdt.flatten()])
+
+# Example usage
+A = np.array([[0, 1], [0, 0]])
+B = np.array([[0], [1]])
+H = np.array([[1, 0]])
+Q = np.eye(2) * 0.01
+R = np.array([[1]])
+
+x0 = np.zeros(2)
+P0 = np.eye(2)
+
+y0 = np.concatenate([x0, P0.flatten()])
+
+# u(t) and z(t) as functions
+u = lambda t: np.array([0])
+z = lambda t: np.array([1])
+
+sol = solve_ivp(continuous_kf_ode, [0, 10], y0, args=(A, B, H, Q, R, u, z))
+print("Time:", sol.t)

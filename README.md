@@ -1,4 +1,3 @@
-```markdown
 # Stewart Platform Control & Data Filtering System
 
 **Author:** D.H.A.Tuan
@@ -27,9 +26,8 @@ This application is useful for:
 
 ## Preview
 
-> Add a screenshot or system diagram here.
 
-![Stewart Platform GUI screenshot](asset/images/preview.png)
+![Stewart Platform GUI screenshot](/asset/image/preview.png)
 
 ---
 

@@ -11,6 +11,28 @@
 
 ---
 
+## What is this?
+
+This project is a complete software tool for collecting and analyzing load-cell measurements from a 6-leg Stewart platform. It connects to an Arduino-based measurement system, filters the sensor data, computes platform forces and moments, and displays the results in a desktop GUI.
+
+## What is this used for?
+
+This application is useful for:
+
+- validating and testing Stewart platform force distribution
+- monitoring load-cell performance in real time
+- comparing raw, filtered, and Kalman-smoothed sensor outputs
+- exporting measurement data for further analysis
+- learning how to build a robotics data acquisition and visualization system
+
+## Preview
+
+> Add a screenshot or system diagram here.
+
+![Stewart Platform GUI screenshot](asset/images/preview.png)
+
+---
+
 ## Project Overview
 
 This repository contains a Python application for real-time acquisition, filtering, visualization, and logging of load-cell data from a 6-leg Stewart platform.
